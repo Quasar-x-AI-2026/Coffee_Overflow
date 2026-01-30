@@ -14,3 +14,9 @@ In rural Ranchi, dermatological care is scarce. We are building an **Offline AI 
 - [x] **Phase 2:** Initial Model Training in Google Colab.
 - [/] **Phase 3:** Flutter App & TFLite Integration (IN PROGRESS).
 - [ ] **Phase 4:** Field Testing in local health centers.
+
+### 🔬 ML Progress: Data Augmentation
+To handle varied lighting in rural Jharkhand, we utilize:
+- **Random Flips** (Horizontal/Vertical)
+- **Random Rotation** (up to 20%)
+- **MobileNetV2 Preprocessing** (Normalization to [-1, 1]) 
