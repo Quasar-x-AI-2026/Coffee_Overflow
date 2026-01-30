@@ -1,22 +1,36 @@
-# 🏥 SkinSense AI
-> **Status:** In Development (Stage 1: Vision & Prototyping) 🛠️
+# 🏥 SkinSense AI - Offline Skin Disease Detection for Rural Healthcare
 
-## 📍 Problem Statement
-In rural Ranchi, dermatological care is scarce. We are building an **Offline AI tool** to help community workers identify **Psoriasis**, **Eczema**, and **Ringworm** using **TFLite**.
+[![Google Solution Challenge 2025](https://img.shields.io/badge/Google%20Solution%20Challenge-2025-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://developers.google.com/community/gdsc-solution-challenge)
+[![Status](https://img.shields.io/badge/Status-Phase%201%20Development-orange?style=for-the-badge)]()
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)]()
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)]()
 
-## 🏗️ Technical Architecture
-- **AI Model:** `MobileNetV2` (currently in the fine-tuning phase).
-- **Frontend:** `Flutter` (initial camera UI drafted).
-- **Quantization:** Planned **INT8** to ensure the model is <5MB.
+> **⚠️ PROJECT STATUS:** This project is currently in Phase 1 development. Core ML pipeline and mobile app foundation are under active development.
 
-## 🗺️ Project Roadmap
-- [x] **Phase 1:** Market Research & User Journey Design.
-- [x] **Phase 2:** Initial Model Training in Google Colab.
-- [/] **Phase 3:** Flutter App & TFLite Integration (IN PROGRESS).
-- [ ] **Phase 4:** Field Testing in local health centers.
+---
 
-### 🔬 ML Progress: Data Augmentation
-To handle varied lighting in rural Jharkhand, we utilize:
-- **Random Flips** (Horizontal/Vertical)
-- **Random Rotation** (up to 20%)
-- **MobileNetV2 Preprocessing** (Normalization to [-1, 1]) 
+## 🎯 Problem Statement
+
+In rural Ranchi, Jharkhand, **community health workers lack diagnostic tools** to identify common skin diseases. Patients often travel 50+ km to reach dermatologists, leading to:
+- Delayed treatment for conditions like Psoriasis, Eczema, and Ringworm
+- Increased healthcare costs for low-income families
+- Preventable complications due to misdiagnosis
+
+**UN SDG Alignment:** 🎯 SDG 3 (Good Health & Well-being) | 🎯 SDG 10 (Reduced Inequalities)
+
+---
+
+## 💡 Our Solution
+
+**SkinSense AI** is a **100% offline, AI-powered mobile application** that enables community health workers to:
+- Capture images of skin conditions using their smartphone camera
+- Receive instant AI-based diagnostic suggestions for 3 common conditions
+- Access treatment recommendations and referral guidelines
+- Work completely offline in areas with no internet connectivity
+
+### Key Innovation
+Unlike existing telemedicine solutions that require internet, SkinSense AI runs entirely on-device using TensorFlow Lite, making it accessible in the most remote rural areas.
+
+---
+
+## 🏗️ Architecture Overview
