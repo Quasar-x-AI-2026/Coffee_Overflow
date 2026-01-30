@@ -29,8 +29,17 @@ class _ResultScreenState extends State<ResultScreen> {
       
       if (!mounted) return;
 
+      // Replace "normal" or "normal skin" with "No disease detected"
+      String displayResult = prediction;
+      String normalizedPrediction = prediction.toLowerCase().trim();
+      if (normalizedPrediction == 'normal' || 
+          normalizedPrediction == 'normal skin' ||  normalizedPrediction.contains('normal_skin')
+       ) {
+        displayResult = "No disease detected";
+      }
+
       setState(() {
-        result = prediction;
+        result = displayResult;
         medicalInfo = _getMedicalInfo(prediction);
         isLoading = false;
       });
@@ -153,6 +162,37 @@ class _ResultScreenState extends State<ResultScreen> {
           'Joint pain or swelling',
           'Severe discomfort or disability',
           'OTC treatments ineffective',
+        ],
+      },
+
+      "ringworm": {
+        'severity': 'Mild to Moderate',
+        'description': 'Fungal infection causing red, ring-shaped rash with clear center',
+        'precautions': [
+          'Keep affected area clean and dry',
+          'Avoid sharing personal items (towels, clothing)',
+          'Wear loose-fitting, breathable clothing',
+          'Change socks and underwear daily',
+          'Disinfect surfaces and items regularly',
+        ],
+        'treatments': [
+          'Clotrimazole cream 1%',
+          'Miconazole cream or spray',
+          'Terbinafine cream (Lamisil)',
+          'Tolnaftate powder',
+          'Complete full treatment course (2-4 weeks)',
+        ],
+        'suggestions': [
+          'Avoid scratching the rash',
+          'Use antifungal powder in shoes',
+          'Wear sandals in public showers',
+          'Boost immune system with healthy diet',
+        ],
+        'whenToSeeDoctor': [
+          'No improvement after 2 weeks',
+          'Spreading to other areas',
+          'Severe pain or discharge',
+          'Diabetic with fungal infection',
         ],
       },
       
@@ -391,29 +431,15 @@ class _ResultScreenState extends State<ResultScreen> {
 
     // Default response for unknown conditions
     return {
-      'severity': 'Unknown Condition',
-      'description': 'Unable to match with known skin conditions',
-      'precautions': [
-        'Keep the affected area clean and dry',
-        'Avoid irritating the skin',
-        'Document changes with photos',
-        'Consult a dermatologist for proper diagnosis',
+      'severity': 'No evidence of disease',
+      'description': 'If the issue persists, try Fixes below ',
+      'Fixes': [ 
+        'Zoom in and try again',
+        'Take a clear photo in good light and upload it',
+        'Ensure the affected area is visible and unobstructed',
+        'See a skin specialist , if unsure about the condition',
       ],
-      'treatments': [
-        'Gentle cleansing with mild soap',
-        'Moisturize with fragrance-free lotion',
-        'Avoid self-medication without diagnosis',
-      ],
-      'suggestions': [
-        'Schedule an appointment with a dermatologist',
-        'Bring photos showing progression',
-        'List any recent changes (products, diet, environment)',
-      ],
-      'whenToSeeDoctor': [
-        'Any persistent or worsening skin condition',
-        'Uncertainty about the diagnosis',
-        'Pain, bleeding, or signs of infection',
-      ],
+      
     };
   }
 
@@ -467,6 +493,7 @@ class _ResultScreenState extends State<ResultScreen> {
           
           // Medical Information (if available)
           if (medicalInfo.isNotEmpty) ...[
+            _buildFixesCard(),
             _buildPrecautionsCard(),
             _buildTreatmentsCard(),
             _buildSuggestionsCard(),
@@ -628,6 +655,19 @@ class _ResultScreenState extends State<ResultScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildFixesCard() {
+    if (!medicalInfo.containsKey('Fixes')){
+      print("No Fixes found in medicalInfo");
+      return const SizedBox.shrink();
+    }
+    print("Building Fixes card with items: ${medicalInfo['Fixes']}");
+    return _buildInfoCard(
+      title: "🔧 Troubleshooting Tips",
+      items: medicalInfo['Fixes'],
+      color: Colors.blue,
     );
   }
 
