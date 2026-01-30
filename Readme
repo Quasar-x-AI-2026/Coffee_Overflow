@@ -1,0 +1,16 @@
+# 🏥 SkinSense AI
+> **Status:** In Development (Stage 1: Vision & Prototyping) 🛠️
+
+## 📍 Problem Statement
+In rural Ranchi, dermatological care is scarce. We are building an **Offline AI tool** to help community workers identify **Psoriasis**, **Eczema**, and **Ringworm** using **TFLite**.
+
+## 🏗️ Technical Architecture
+- **AI Model:** `MobileNetV2` (currently in the fine-tuning phase).
+- **Frontend:** `Flutter` (initial camera UI drafted).
+- **Quantization:** Planned **INT8** to ensure the model is <5MB.
+
+## 🗺️ Project Roadmap
+- [x] **Phase 1:** Market Research & User Journey Design.
+- [x] **Phase 2:** Initial Model Training in Google Colab.
+- [/] **Phase 3:** Flutter App & TFLite Integration (IN PROGRESS).
+- [ ] **Phase 4:** Field Testing in local health centers.
