@@ -1,0 +1,17 @@
+# Python temporary files
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+env/
+
+# Data and Models
+# (We handle large models with Git LFS or links, not raw Git)
+dataset/
+*.zip
+*.log
+
+# Mobile build folders
+build/
+.dart_tool/
