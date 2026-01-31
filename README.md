@@ -73,7 +73,7 @@ Dr.dermAI/
 
 ## Team
 
-**Team Quasar-x-AI-2026** - Hackathon participants, January 2026
+**Team - Coffee Overflow | Quasar-x-AI-2026** - Hackathon participants, January 2026
 
 ## Hackathon
 
