@@ -1,0 +1,4 @@
+1_Ringworm
+2_Psoriasis
+3_Eczema
+4_Normal_Skin
